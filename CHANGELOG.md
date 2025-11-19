@@ -40,6 +40,7 @@ Initial release to go through the process of preparing and uploading
     - Copy UUID to clipboard
     - Insert UUID into current editor
 
+[1.0.0]: https://github.com/Motivesoft/vscode-uuid-generator/releases/tag/v1.0.0
 [0.4.1]: https://github.com/Motivesoft/vscode-uuid-generator/releases/tag/v0.4.1
 [0.4.0]: https://github.com/Motivesoft/vscode-uuid-generator/releases/tag/v0.4.0
 [0.3.0]: https://github.com/Motivesoft/vscode-uuid-generator/releases/tag/v0.3.0
