@@ -2,6 +2,9 @@
 
 All notable changes to the "vscode-uuid-generator" extension will be documented in this file.
 
+## [1.0.1] - 2026-02-11
+Updated dependencies
+
 ## [1.0.0] - 2025-11-19
 Updated dependencies
 
@@ -40,6 +43,7 @@ Initial release to go through the process of preparing and uploading
     - Copy UUID to clipboard
     - Insert UUID into current editor
 
+[1.0.1]: https://github.com/Motivesoft/vscode-uuid-generator/releases/tag/v1.0.1
 [1.0.0]: https://github.com/Motivesoft/vscode-uuid-generator/releases/tag/v1.0.0
 [0.4.1]: https://github.com/Motivesoft/vscode-uuid-generator/releases/tag/v0.4.1
 [0.4.0]: https://github.com/Motivesoft/vscode-uuid-generator/releases/tag/v0.4.0
