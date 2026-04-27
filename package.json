@@ -1,152 +1,134 @@
 {
-	"name": "vscode-uuid-generator",
-	"displayName": "UUID Generator",
-	"description": "Generate UUIDs to insert into the current file, or onto the clipboard",
-	"keywords": [
-		"uuid",
-		"guid"
-	],
-	"categories": [
-		"Other"
-	],
-	"version": "1.0.1",
-	"license": "MIT",
-	"icon": "images/icon.png",
-	"publisher": "motivesoft",
-	"author": {
-		"name": "ianabrown",
-		"url": "https://github.com/ianabrown"
-	},
-	"homepage": "https://github.com/Motivesoft/vscode-uuid-generator/blob/master/README.md",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/Motivesoft/vscode-uuid-generator.git"
-	},
-	"bugs": {
-		"url": "https://github.com/Motivesoft/vscode-uuid-generator/issues"
-	},
-	"engines": {
-		"vscode": "^1.65.0"
-	},
-	"activationEvents": [
-		"onCommand:vscode-uuid-generator.insertDefault",
-		"onCommand:vscode-uuid-generator.insertNil",
-		"onCommand:vscode-uuid-generator.copyDefault"
-	],
-	"main": "./out/extension.js",
-	"browser": "./out/web/extension.js",
-	"capabilities": {
-		"virtualWorkspaces": true,
-		"untrustedWorkspaces": {
-			"supported": true
-		}
-	},
-	"contributes": {
-		"commands": [
-			{
-				"command": "vscode-uuid-generator.insertDefault",
-				"title": "Insert new UUID"
-			},
-			{
-				"command": "vscode-uuid-generator.insertNil",
-				"title": "Insert new nil UUID (with all bits set to 0)"
-			},
-			{
-				"command": "vscode-uuid-generator.copyDefault",
-				"title": "Copy new UUID to clipboard"
-			}
-		],
-		"configuration": [
-			{
-				"title": "UUID Generator",
-				"properties": {
-					"vscode-uuid-generator.contextMenu.enabled": {
-						"type": "boolean",
-						"default": true,
-						"description": "Whether to show the Insert new UUID function in the editor context menu"
-					},
-					"vscode-uuid-generator.uppercaseDigits": {
-						"type": "boolean",
-						"default": false,
-						"description": "Use uppercase hex digits in UUID. Otherwise digits will be lowercase"
-					},
-					"vscode-uuid-generator.textSelection": {
-						"type": "boolean",
-						"default": false,
-						"description": "Whether the inserted UUID text should be left in a selected state"
-					},
-					"vscode-uuid-generator.decorationStyle": {
-						"type": "string",
-						"default": "none",
-						"enum": [
-							"none",
-							"surroundSingleQuotes",
-							"surroundDoubleQuotes",
-							"surroundCurlyBraces",
-							"surroundRoundedBraces",
-							"surroundSquareBraces"
-						],
-						"enumDescriptions": [
-							"No decoration around the UUID, e.g. 00000000-0000-0000-0000-000000000000",
-							"Surround UUID with single quotes, e.g. '00000000-0000-0000-0000-000000000000'",
-							"Surround UUID with double quotes, e.g. \"00000000-0000-0000-0000-000000000000\"",
-							"Surround UUID with curly braces, e.g. {00000000-0000-0000-0000-000000000000}",
-							"Surround UUID with rounded braces, e.g. (00000000-0000-0000-0000-000000000000)",
-							"Surround UUID with square braces, e.g. [00000000-0000-0000-0000-000000000000]"
-						],
-						"description": "Choose whether the generated UUID should be wrapped in braces ([{}]) or quotes \"''\""
-					}
-				}
-			}
-		],
-		"menus": {
-			"editor/context": [
-				{
-					"command": "vscode-uuid-generator.insertDefault",
-					"group": "motivesoft",
-					"when": "config.vscode-uuid-generator.contextMenu.enabled"
-				}
-			]
-		},
-		"keybindings": [
-			{
-				"command": "vscode-uuid-generator.insertDefault",
-				"key": "alt+shift+u",
-				"when": "editorTextFocus && !editorReadonly"
-			}
-		]
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run compile && npm run package-web",
-		"compile": "tsc -p ./",
-		"compile-web": "webpack",
-		"lint": "eslint src --ext ts",
-		"watch": "tsc -watch -p ./",
-		"watch-web": "webpack --watch",
-		"pretest": "npm run compile && npm run compile-web && npm run lint",
-		"test": "node ./out/test/runTest.js",
-		"test-web": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. --extensionTestsPath=out/web/test/suite/index.js",
-		"open-in-browser": "vscode-test-web --extensionDevelopmentPath=. .",
-		"package-web": "webpack --mode production --devtool hidden-source-map"
-	},
-	"devDependencies": {
-		"@types/glob": "^7.2.0",
-		"@types/mocha": "^9.1.0",
-		"@types/node": "14.x",
-		"@types/vscode": "^1.65.0",
-		"@types/webpack-env": "^1.16.3",
-		"@typescript-eslint/eslint-plugin": "^5.12.1",
-		"@typescript-eslint/parser": "^5.12.1",
-		"@vscode/test-electron": "^2.1.2",
-		"@vscode/test-web": "^0.0.22",
-		"assert": "^2.0.0",
-		"eslint": "^8.9.0",
-		"glob": "^7.2.0",
-		"mocha": "^11.3.0",
-		"process": "^0.11.10",
-		"ts-loader": "^9.2.6",
-		"typescript": "^4.5.5",
-		"webpack": "^5.69.1",
-		"webpack-cli": "^4.9.2"
-	}
+  "name": "vscode-uuid-generator",
+  "displayName": "UUID Generator",
+  "description": "Generate UUIDs to insert into the current file, or onto the clipboard",
+  "keywords": [
+    "uuid",
+    "guid"
+  ],
+  "categories": [
+    "Other"
+  ],
+  "version": "1.1.0",
+  "license": "MIT",
+  "publisher": "motivesoft",
+  "author": {
+    "name": "ianabrown",
+    "url": "https://github.com/ianabrown"
+  },
+  "icon": "images/icon.png",
+  "homepage": "https://github.com/Motivesoft/vscode-uuid-generator/blob/master/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Motivesoft/vscode-uuid-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Motivesoft/vscode-uuid-generator/issues"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "main": "./out/extension.js",
+  "browser": "./dist/web/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vscode-uuid-generator.insertNil",
+        "title": "Insert new nil UUID (with all bits set to 0)"
+      },
+      {
+        "command": "vscode-uuid-generator.insertDefault",
+        "title": "Insert new UUID"
+      },
+      {
+        "command": "vscode-uuid-generator.copyDefault",
+        "title": "Copy a new UUID to the clipboard"
+      }
+    ],
+    "configuration": [
+      {
+        "title": "UUID Generator",
+        "properties": {
+          "vscode-uuid-generator.contextMenu.enabled": {
+            "type": "boolean",
+            "default": true,
+            "description": "Whether to show the Insert new UUID function in the editor context menu"
+          },
+          "vscode-uuid-generator.uppercaseDigits": {
+            "type": "boolean",
+            "default": false,
+            "description": "Use uppercase hex digits in UUID. Otherwise digits will be lowercase"
+          },
+          "vscode-uuid-generator.textSelection": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether the inserted UUID text should be left in a selected state"
+          },
+          "vscode-uuid-generator.decorationStyle": {
+            "type": "string",
+            "default": "none",
+            "enum": [
+              "none",
+              "surroundSingleQuotes",
+              "surroundDoubleQuotes",
+              "surroundCurlyBraces",
+              "surroundRoundedBraces",
+              "surroundSquareBraces"
+            ],
+            "enumDescriptions": [
+              "No decoration around the UUID, e.g. 00000000-0000-0000-0000-000000000000",
+              "Surround UUID with single quotes, e.g. '00000000-0000-0000-0000-000000000000'",
+              "Surround UUID with double quotes, e.g. \"00000000-0000-0000-0000-000000000000\"",
+              "Surround UUID with curly braces, e.g. {00000000-0000-0000-0000-000000000000}",
+              "Surround UUID with rounded braces, e.g. (00000000-0000-0000-0000-000000000000)",
+              "Surround UUID with square braces, e.g. [00000000-0000-0000-0000-000000000000]"
+            ],
+            "description": "Choose whether the generated UUID should be wrapped in braces ([{}]) or quotes \"''\""
+          }
+        }
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "vscode-uuid-generator.insertDefault",
+          "group": "motivesoft",
+          "when": "config.vscode-uuid-generator.contextMenu.enabled"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "vscode-uuid-generator.insertDefault",
+        "key": "alt+shift+u",
+        "when": "editorTextFocus && !editorReadonly"
+      }
+    ]
+  },
+  "activationEvents": [],
+  "capabilities": {
+    "virtualWorkspaces": true,
+    "untrustedWorkspaces": {
+      "supported": true
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile && npm run compile-web",
+    "compile": "tsc -p ./",
+    "watch": "tsc -w -p ./",
+    "pretest": "npm run compile",
+    
+    "compile-web": "webpack",
+    "watch-web": "webpack --watch",
+    "test-web": "npm run compile-web && npx vscode-test-web --extensionDevelopmentPath=./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/test-web": "^0.0.80",
+    "ts-loader": "^9.5.7",
+    "typescript": "^5.2.0",
+    "webpack": "^5.106.2",
+    "webpack-cli": "^5.1.4"
+  }
 }
