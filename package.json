@@ -116,9 +116,11 @@
     "vscode:prepublish": "npm run compile && npm run compile-web",
     "compile": "tsc -p ./",
     "watch": "tsc -w -p ./",
+    "pretest": "npm run compile",
+    
     "compile-web": "webpack",
     "watch-web": "webpack --watch",
-    "pretest": "npm run compile && npm run compile-web"
+    "test-web": "npm run compile-web && npx vscode-test-web --extensionDevelopmentPath=./"
   },
   "devDependencies": {
     "@types/node": "^20.14.0",
